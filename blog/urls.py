@@ -17,6 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app_blog.views import bienvenida , Informacion , Contacto , Ver_mas , Es_un , Certificaciones , Otros
+from app_usuarios.views import registro , Registrado
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', bienvenida),
+    path('informacion/', Informacion),
+    path('contacto/' , Contacto),
+    path('pages/' , Ver_mas),
+    path('es_un/' , Es_un),
+    path('cert/' , Certificaciones),
+    path('otros/' , Otros),
+    path('registro/' , registro),
+    path('registrado/' , Registrado),
 ]
+
+    
+    

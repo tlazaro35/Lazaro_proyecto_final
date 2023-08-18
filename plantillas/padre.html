@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Portfolio plantilla</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informacion/">Informacion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacto/">Contacto</a></li>
+                        <a class="btn btn-primary" href="/registro/">Registrarse</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+
+        {% block cambios %}
+
+
+            <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Tobias Benjamin Lazaro</h1>
+                    <p>Bienvenido/a a mi perfil profesional</p>
+                    <a class="btn btn-primary" href="/pages/">Ver mas</a>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Gracias por ingresar, aqui nos podremos conocer.</p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Estudios Universitarios</h2>
+                            <p class="card-text">Informacion estudios universitarios</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="/es_un/">Mas informacion</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Certificaciones</h2>
+                            <p class="card-text">Aqui podras ver Certificaciones</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="/cert/">Mas informacion</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Idiomas y habilidades</h2>
+                            <p class="card-text">Detalles</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="/otros/">Mas informacion</a></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+
+        {% endblock %}
+
+        <!-- Footer-->
+        <footer class="py-1 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Fecha y hora actual : {% now "Y-m-d H:i:s" %} - Copyright &copy; Your Website 2023</p></div>
+                <p></p>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
+</html>

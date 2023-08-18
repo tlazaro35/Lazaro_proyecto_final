@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% load static &}
+
+{% block cambios %}
+
+
+<div class="container px-4 px-lg-5">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Tobias Benjamin Lazaro</h1>
+            <p>Bienvenido/a a mi perfil profesional</p>
+        </div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">Además de mi licenciatura en Administración de Empresas de la Universidad 
+            Católica de Córdoba, he completado varios cursos, incluidos MySql y Analista de Negocios, 
+            a través de la plataforma de aprendizaje en línea Coderhouse, donde recibí certificados por ambos cursos 
+            y me ubiqué entre los 10 mejores estudiantes. Actualmente, estoy ampliando mi educación cursando Python en la misma plataforma.</p></div>
+            <a href="{{ archivo1.url }}" download>Descargar Archivo 1</a>
+            <a href="{{ archivo2.url }}" download>Descargar Archivo 2</a>
+            <a href="{{ archivo3.url }}" download>Descargar Archivo 3</a>
+            <a href="{{ archivo4.url }}" download>Descargar Archivo 4</a>
+            <a href="{{ archivo5.url }}" download>Descargar Archivo 5</a>
+
+    </div>
+    
+
+
+{% endblock %}
