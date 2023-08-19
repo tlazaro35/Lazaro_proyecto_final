@@ -5,35 +5,35 @@
 {% block cambios %}
 
 
-
-
 <head>
     <title>Lista de Usuarios</title>
 </head>
 <body>
-    <div class="card text-white bg-secondary my-5 py-4 text-center">
-        
-            <h1>Lista de Usuarios</h1>
-                <table>
-                    <tr>
-                        <th>Usuario</th> <br>
-                        <th>Trabajo</th> <br>
-                        <th>Email</th> <br>  
-                    </tr>
-                    {% for usuario in usuarios %}
-                    <tr>
-                    <ol>
-                        <td>{{ usuario.Usuario }}</td>
-                        <td>{{ usuario.Trabajo }}</td>
-                        <td>{{ usuario.Email }}</td>
-                    </ol>
-                    </tr>
-      
-    </div>
+    <h1>Lista de Usuarios</h1>
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Trabajo</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <ol>
+                <td>{{ usuario.Usuario }}</td>
+                <td>{{ usuario.Trabajo }}</td>
+                <td>{{ usuario.Email }}</td>
+            </ol>
+            <td>
+                <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+                <td><a href="{% url 'editar_usuario' usuario.id %}">Editar</a></td>
+
+            </td>
+        </tr>
         {% endfor %}
     </table>
 </body>
-<br>
+
 
     
 

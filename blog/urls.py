@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from app_blog.views import bienvenida , Informacion , Contacto , Ver_mas , Es_un , Certificaciones , Otros
-from app_usuarios.views import registro , Registrado , lista_usuarios
+from app_usuarios.views import registro , Registrado , lista_usuarios , eliminar_usuario , editar_usuario
 
 
 urlpatterns = [
@@ -32,7 +32,9 @@ urlpatterns = [
     path('otros/' , Otros),
     path('registro/' , registro),
     path('registrado/' , Registrado),
-    path('lista_usuarios/' , lista_usuarios),
+    path('lista_usuarios/' , lista_usuarios , name='lista_usuarios'),
+    path('eliminar_usuario/<int:usuario_id>/', eliminar_usuario, name='eliminar_usuario'),
+    path('editar_usuario/<int:pk>/', editar_usuario, name='editar_usuario'),
 ]
 
     
