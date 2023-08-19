@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from app_blog.views import bienvenida , Informacion , Contacto , Ver_mas , Es_un , Certificaciones , Otros
-from app_usuarios.views import registro , Registrado
+from app_usuarios.views import registro , Registrado , lista_usuarios
 
 
 urlpatterns = [
@@ -32,6 +32,7 @@ urlpatterns = [
     path('otros/' , Otros),
     path('registro/' , registro),
     path('registrado/' , Registrado),
+    path('lista_usuarios/' , lista_usuarios),
 ]
 
     

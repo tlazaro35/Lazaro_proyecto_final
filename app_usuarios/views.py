@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UsuarioFormulario
+from .models import Usuario
 
 def Registrado(request) :
     http_response = render(
@@ -20,3 +21,8 @@ def registro(request):
         formulario = UsuarioFormulario()
     
     return render(request, 'registro.html', {'formulario': formulario})
+
+def lista_usuarios(request):
+    usuarios = Usuario.objects.all()
+    context = {'usuarios': usuarios}
+    return render(request, 'lista_usuarios.html', context)

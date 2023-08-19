@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+
+{% load static &}
+
+{% block cambios %}
+
+
+
+
+<head>
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        
+            <h1>Lista de Usuarios</h1>
+                <table>
+                    <tr>
+                        <th>Usuario</th> <br>
+                        <th>Trabajo</th> <br>
+                        <th>Email</th> <br>  
+                    </tr>
+                    {% for usuario in usuarios %}
+                    <tr>
+                    <ol>
+                        <td>{{ usuario.Usuario }}</td>
+                        <td>{{ usuario.Trabajo }}</td>
+                        <td>{{ usuario.Email }}</td>
+                    </ol>
+                    </tr>
+      
+    </div>
+        {% endfor %}
+    </table>
+</body>
+<br>
+
+    
+
+
+{% endblock %}
