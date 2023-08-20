@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect , get_object_or_404
 from .forms import UsuarioFormulario
 from .models import Usuario
 from django.contrib.auth import login
+from django.test import TestCase
 
 def registrado(request) :
     http_response = render(
@@ -47,3 +48,14 @@ def editar_usuario(request, pk):
     
     return render(request, 'editar_usuario.html', {'formulario': formulario})
 
+class usuariotest(TestCase):
+    
+    def test_crear_usuario(self):
+        Usuario = Usuario(Usuario="Juan" , Trabajo = "Administrador")
+        Usuario.save()
+        
+        self.assertEqual(Usuario.objects.count(), 1)
+        self.assertEqual(Usuario.Usuario, 'Juan')
+        self.assertEqual(Usuario.Trabajo, 'Administrador')
+        
+        
