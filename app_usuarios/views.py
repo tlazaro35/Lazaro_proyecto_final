@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect , get_object_or_404
 from .forms import UsuarioFormulario
 from .models import Usuario
+from django.contrib.auth import login
 
-def Registrado(request) :
+def registrado(request) :
     http_response = render(
         request=request,
         template_name='registrado.html',
@@ -12,15 +13,16 @@ def Registrado(request) :
 
 
 def registro(request):
-    if request.method == "POST":
-        formulario = UsuarioFormulario(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            return redirect('/registrado/')  
+    if request.method == 'POST':
+        form = UsuarioFormulario(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/registrado/')
     else:
-        formulario = UsuarioFormulario()
+        form = UsuarioFormulario()
     
-    return render(request, 'registro.html', {'formulario': formulario})
+    return render(request, 'registro.html', {'formulario': form})
 
 def lista_usuarios(request):
     usuarios = Usuario.objects.all()
@@ -44,3 +46,4 @@ def editar_usuario(request, pk):
         formulario = UsuarioFormulario(instance=usuario)
     
     return render(request, 'editar_usuario.html', {'formulario': formulario})
+

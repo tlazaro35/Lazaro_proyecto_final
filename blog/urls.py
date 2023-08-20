@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 
 from app_blog.views import bienvenida , Informacion , Contacto , Ver_mas , Es_un , Certificaciones , Otros
-from app_usuarios.views import registro , Registrado , lista_usuarios , eliminar_usuario , editar_usuario
+from app_usuarios.views import registro , registrado , lista_usuarios , eliminar_usuario , editar_usuario
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -30,11 +31,13 @@ urlpatterns = [
     path('es_un/' , Es_un),
     path('cert/' , Certificaciones),
     path('otros/' , Otros),
-    path('registro/' , registro),
-    path('registrado/' , Registrado),
+    path('registrado/' , registrado),
     path('lista_usuarios/' , lista_usuarios , name='lista_usuarios'),
     path('eliminar_usuario/<int:usuario_id>/', eliminar_usuario, name='eliminar_usuario'),
     path('editar_usuario/<int:pk>/', editar_usuario, name='editar_usuario'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('registro/' , registro),
 ]
 
     
