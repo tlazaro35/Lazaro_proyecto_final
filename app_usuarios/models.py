@@ -23,7 +23,7 @@ class UsuarioManager(BaseUserManager):
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
     Usuario = models.CharField(max_length=100, unique=True)
-    Contraseña = models.CharField(max_length=100 , default='123')
+    Contraseña = models.CharField(max_length=100)
     Trabajo = models.CharField(max_length=500)
     Email = models.EmailField(max_length=100, unique=True)
     is_active = models.BooleanField(default=True)
@@ -36,3 +36,4 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.Usuario
+    
