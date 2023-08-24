@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect , get_object_or_404
 from .forms import UsuarioFormulario
 from .models import Usuario
-from django.contrib.auth import login
+from django.contrib.auth import login , logout
+from django.contrib.auth import views
 from django.test import TestCase
 
 def registrado(request) :
@@ -18,6 +19,8 @@ def registro(request):
         form = UsuarioFormulario(request.POST)
         if form.is_valid():
             user = form.save()
+            user.set_password(form.cleaned_data['password'])  
+            user.save()
             login(request, user)
             return redirect('/registrado/')
     else:
@@ -47,6 +50,7 @@ def editar_usuario(request, pk):
         formulario = UsuarioFormulario(instance=usuario)
     
     return render(request, 'editar_usuario.html', {'formulario': formulario})
+
 
 class usuariotest(TestCase):
     
